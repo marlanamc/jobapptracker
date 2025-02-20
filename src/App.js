@@ -298,12 +298,14 @@ const JobApplicationTracker = () => {
   useEffect(() => {
     const savedJobs = localStorage.getItem('jobs');
     if (savedJobs) {
+      console.log('Loading jobs from localStorage:', JSON.parse(savedJobs));
       setJobs(JSON.parse(savedJobs));
     }
   }, []);
 
   // Save jobs to localStorage whenever jobs state changes
   useEffect(() => {
+    console.log('Saving jobs to localStorage:', jobs);
     localStorage.setItem('jobs', JSON.stringify(jobs));
   }, [jobs]);
 
