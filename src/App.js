@@ -277,6 +277,7 @@ const JobApplicationTracker = () => {
       Papa.parse(file, {
         header: true,
         complete: (results) => {
+          console.log(results.data); // Log the parsed data to verify
           const newJobs = results.data.map((job, index) => ({
             title: job.title,
             org: job.organization,
