@@ -294,6 +294,19 @@ const JobApplicationTracker = () => {
     }
   };
 
+  // Load jobs from localStorage on component mount
+  useEffect(() => {
+    const savedJobs = localStorage.getItem('jobs');
+    if (savedJobs) {
+      setJobs(JSON.parse(savedJobs));
+    }
+  }, []);
+
+  // Save jobs to localStorage whenever jobs state changes
+  useEffect(() => {
+    localStorage.setItem('jobs', JSON.stringify(jobs));
+  }, [jobs]);
+
   return (
     <div className="app-container">
       {showCelebration && (
