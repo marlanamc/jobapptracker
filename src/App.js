@@ -411,7 +411,11 @@ const JobApplicationTracker = () => {
 
           <div className="stat-card">
             <div className="stat-header">
+<<<<<<< HEAD
               <h3>⏰ Application Timer</h3>
+=======
+              <h3>⏰Application Timer</h3>
+>>>>>>> 143f91e1f157f254c2399670fc1ff0696b9fbeab
             </div>
             <p className="timer-display">
               {Math.floor(timer / 60)}:{timer % 60 < 10 ? '0' : ''}{timer % 60}
