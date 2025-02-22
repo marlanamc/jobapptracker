@@ -298,14 +298,24 @@ const JobApplicationTracker = () => {
   useEffect(() => {
     const savedJobs = localStorage.getItem('jobs');
     if (savedJobs) {
+      console.log('Loading jobs from localStorage:', JSON.parse(savedJobs));
       setJobs(JSON.parse(savedJobs));
     }
   }, []);
 
   // Save jobs to localStorage whenever jobs state changes
   useEffect(() => {
+    console.log('Saving jobs to localStorage:', jobs);
     localStorage.setItem('jobs', JSON.stringify(jobs));
   }, [jobs]);
+
+  // Function to clear all jobs
+  const clearAllJobs = () => {
+    if (window.confirm("Are you sure you want to clear all jobs?")) {
+      setJobs([]);
+      localStorage.removeItem('jobs');
+    }
+  };
 
   return (
     <div className="app-container">
@@ -318,19 +328,14 @@ const JobApplicationTracker = () => {
       <div className="header-card">
         <div className="header-content">
           <div className="header-title">
-            <Award className="header-icon" />
             <h1>Job Application Progress Tracker</h1>
           </div>
-          <p className="header-subtitle">
-            Track your applications, meet deadlines, earn rewards!
-          </p>
         </div>
 
         <div className="stats-container">
           <div className="stat-card">
             <div className="stat-header">
-              <Target className="stat-icon" />
-              <h3>Total Applications</h3>
+              <h3>📊 Total Applications</h3>
             </div>
             <p className="stat-value">{filteredJobs.length}</p>
             <p className="stat-label">jobs to apply for</p>
@@ -341,8 +346,7 @@ const JobApplicationTracker = () => {
 
           <div className="stat-card">
             <div className="stat-header">
-              <CheckCircle className="stat-icon" />
-              <h3>Completed</h3>
+              <h3>✅ Completed</h3>
             </div>
             <p className="stat-value">{completedCount}</p>
             <p className="stat-label">applications finished</p>
@@ -350,8 +354,7 @@ const JobApplicationTracker = () => {
 
           <div className="stat-card">
             <div className="stat-header">
-              <Clock className="stat-icon" />
-              <h3>Overall Progress</h3>
+              <h3>📈 Overall Progress</h3>
             </div>
             <div className="progress-container">
               <p className="stat-value">{overallProgress}%</p>
@@ -367,8 +370,7 @@ const JobApplicationTracker = () => {
 
           <div className="stat-card">
             <div className="stat-header">
-              <Award className="stat-icon" />
-              <h3>Select Reward </h3>
+              <h3>🎁 Select Reward</h3>
             </div>
             <select
               value={selectedReward}
@@ -386,8 +388,7 @@ const JobApplicationTracker = () => {
 
           <div className="stat-card">
             <div className="stat-header">
-              <Award className="stat-icon" />
-              <h3>Job Boards</h3>
+              <h3>💼 Job Boards</h3>
             </div>
             <ul className="job-board-links">
               <li>
@@ -410,10 +411,11 @@ const JobApplicationTracker = () => {
 
           <div className="stat-card">
             <div className="stat-header">
-              <Clock className="stat-icon" />
-              <h3>Application Timer</h3>
+              <h3>⏰ Application Timer</h3>
             </div>
-            <p className="stat-value">{Math.floor(timer / 60)}:{timer % 60 < 10 ? '0' : ''}{timer % 60}</p>
+            <p className="timer-display">
+              {Math.floor(timer / 60)}:{timer % 60 < 10 ? '0' : ''}{timer % 60}
+            </p>
             <div className="timer-controls">
               <button onClick={startTimer}><Play /></button>
               <button onClick={pauseTimer}><Pause /></button>
@@ -551,6 +553,10 @@ const JobApplicationTracker = () => {
             onChange={(e) => setNewJob({ ...newJob, url: e.target.value })}
           />
           <button onClick={addNewJob} className="button">Add Job</button>
+          <br></br>
+          <button onClick={clearAllJobs} className="button clear-all-button">
+            Clear All Jobs
+          </button>
         </div>
 
         <div className="grid-item">
