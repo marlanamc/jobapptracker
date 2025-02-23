@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/jobapptracker/static/css/main.0a176f24.css",
-    "main.js": "/jobapptracker/static/js/main.136f312d.js",
+    "main.css": "/jobapptracker/static/css/main.fe062f2f.css",
+    "main.js": "/jobapptracker/static/js/main.f104a34a.js",
     "static/js/453.d13a58ef.chunk.js": "/jobapptracker/static/js/453.d13a58ef.chunk.js",
     "index.html": "/jobapptracker/index.html",
-    "main.0a176f24.css.map": "/jobapptracker/static/css/main.0a176f24.css.map",
-    "main.136f312d.js.map": "/jobapptracker/static/js/main.136f312d.js.map",
+    "main.fe062f2f.css.map": "/jobapptracker/static/css/main.fe062f2f.css.map",
+    "main.f104a34a.js.map": "/jobapptracker/static/js/main.f104a34a.js.map",
     "453.d13a58ef.chunk.js.map": "/jobapptracker/static/js/453.d13a58ef.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0a176f24.css",
-    "static/js/main.136f312d.js"
+    "static/css/main.fe062f2f.css",
+    "static/js/main.f104a34a.js"
   ]
 }
