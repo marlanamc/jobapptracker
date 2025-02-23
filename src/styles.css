@@ -33,7 +33,7 @@
 
 /* Base styles */
 body {
-  background: linear-gradient(135deg, #f6f8ff, #f0e7ff);
+  background: linear-gradient(135deg, #7e0d82, #591290);
   font-family: 'Quicksand', sans-serif;
   color: #2D3748;
   line-height: 1.6;
@@ -401,8 +401,4 @@ select:focus,
   .header-title h1 {
     font-size: 1.5rem;
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 143f91e1f157f254c2399670fc1ff0696b9fbeab

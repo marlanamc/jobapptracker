@@ -132,14 +132,9 @@ const JobApplicationTracker = () => {
           const nowComplete = status === "Complete";
 
           if (!wasComplete && nowComplete) {
-            setCompletedCount((prev) => {
-              const newCount = prev + 1;
-              if (newCount % 3 === 0) {
-                setShowCelebration(true);
-                setTimeout(() => setShowCelebration(false), 3000);
-              }
-              return newCount;
-            });
+            setCompletedCount((prev) => prev + 1);
+            setShowCelebration(true);
+            setTimeout(() => setShowCelebration(false), 3000);
           } else if (wasComplete && !nowComplete) {
             setCompletedCount((prev) => prev - 1);
           }
@@ -411,11 +406,7 @@ const JobApplicationTracker = () => {
 
           <div className="stat-card">
             <div className="stat-header">
-<<<<<<< HEAD
               <h3>⏰ Application Timer</h3>
-=======
-              <h3>⏰Application Timer</h3>
->>>>>>> 143f91e1f157f254c2399670fc1ff0696b9fbeab
             </div>
             <p className="timer-display">
               {Math.floor(timer / 60)}:{timer % 60 < 10 ? '0' : ''}{timer % 60}
@@ -582,88 +573,8 @@ const JobApplicationTracker = () => {
         </div>
       </div>
 
-      {/* Motivation System Section */}
-      <div className="motivation-section">
-        <div className="motivation-header">
-          <h2>Motivation System</h2>
-        </div>
-        <div className="motivation-content">
-          <ul className="motivation-list">
-            <li className="motivation-item">
-              <div className="motivation-icon-container">
-                <Calendar className="motivation-icon" />
-              </div>
-              <div className="motivation-text">
-                <span className="motivation-title">Deadline System:</span>
-                <p>
-                  Each job has a suggested deadline to keep you motivated and on
-                  track. Jobs are spread over the next two weeks with earlier
-                  deadlines for higher-priority positions.
-                </p>
-              </div>
-            </li>
-            <li className="motivation-item">
-              <div className="motivation-icon-container">
-                <Award className="motivation-icon" />
-              </div>
-              <div className="motivation-text">
-                <span className="motivation-title">Reward System:</span>
-                <p>
-                  For every 3 completed applications, treat yourself to the
-                  selected reward! This helps maintain momentum and celebrates
-                  your hard work.
-                </p>
-              </div>
-            </li>
-            <li className="motivation-item">
-              <div className="motivation-icon-container">
-                <Target className="motivation-icon" />
-              </div>
-              <div className="motivation-text">
-                <span className="motivation-title">Progress Tracking:</span>
-                <p>
-                  Breaking down each application into steps (resume, cover
-                  letter, submission) makes the process less overwhelming and
-                  shows your incremental progress.
-                </p>
-              </div>
-            </li>
-            <li className="motivation-item">
-              <div className="motivation-icon-container">
-                <CheckCircle className="motivation-icon" />
-              </div>
-              <div className="motivation-text">
-                <span className="motivation-title">Celebration:</span>
-                <p>
-                  Enjoy a celebration animation whenever you complete an
-                  application! Visual rewards reinforce your accomplishments.
-                </p>
-              </div>
-            </li>
-          </ul>
-          <div className="pro-tips">
-            <p className="pro-tips-header">Pro Tips:</p>
-            <ul className="pro-tips-list">
-              <li>
-                Start with high-priority applications that have the earliest
-                deadlines
-              </li>
-              <li>
-                Block out 1-2 hours each day dedicated solely to applications
-              </li>
-              <li>
-                Complete at least 2-3 applications per day to stay on track
-              </li>
-              <li>
-                Research the organization for 15 minutes before starting each
-                application
-              </li>
-              <li>
-                Keep a document with reusable paragraphs for similar positions
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div className="footer">
+        <p>© 2025 Job Apps To-Do List. All rights reserved.</p>
       </div>
 
       
